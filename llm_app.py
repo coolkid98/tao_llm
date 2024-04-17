@@ -11,7 +11,8 @@ from langchain.vectorstores.chroma import Chroma
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 
-openai_api_key = os.environ['OPENAI_API_KEY']
+# openai_api_key = os.environ['OPENAI_API_KEY']
+openai_api_key = st.secrets["OPENAI_API_KEY"]
 def generate_response(input_text, openai_api_key):
     llm = ChatOpenAI(temperature=0.7, openai_api_key=openai_api_key)
     output = llm.invoke(input_text)
